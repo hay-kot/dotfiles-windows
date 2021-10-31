@@ -25,7 +25,7 @@ ${function:repos} = { Set-Location ~\code }
 # Basic commands
 function which($name) { Get-Command $name -ErrorAction SilentlyContinue | Select-Object Definition }
 function touch($file) { "" | Out-File $file -Encoding ASCII }
-function Edit-Profile { Invoke-Expression "$(if($env:EDITOR -ne $null)  {$env:EDITOR } else { 'notepad' }) $profile" }
+function Edit-Profile { Invoke-Expression "$(if($null -ne $env:EDITOR)  {$env:EDITOR } else { 'notepad' }) $profile" }
 
 function Update-Profile {
     Set-Location "~/Documents/Powershell"; git pull
@@ -35,16 +35,16 @@ function Update-Profile {
 function mkd {
     [CmdletBinding()]
     param(
-       [Parameter(Mandatory = $true)]
-       $Path
+        [Parameter(Mandatory = $true)]
+        $Path
     )
  
     New-Item -Path $Path -ItemType Directory
  
     Set-Location -Path $Path
- }
+}
 
- # Sudo
+# Sudo
 function sudo() {
     if ($args.Length -eq 1) {
         start-process $args[0] -verb "runAs"
@@ -57,9 +57,8 @@ function sudo() {
 # Empty the Recycle Bin on all drives
 function Empty-RecycleBin {
     $RecBin = (New-Object -ComObject Shell.Application).Namespace(0xA)
-    $RecBin.Items() | ForEach-Object{Remove-Item $_.Path -Recurse -Confirm:$false}
+    $RecBin.Items() | ForEach-Object { Remove-Item $_.Path -Recurse -Confirm:$false }
 }
-
 function Reload-Powershell {
     $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
     $newProcess.Arguments = "-nologo";
