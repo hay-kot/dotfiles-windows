@@ -11,7 +11,6 @@ $packages = @(
     "Git.Git",
     "GitHub.cli",
     "OpenJS.NodeJSLTS",
-    # "Lexikos.AutoHotkey",
     "Docker.DockerDesktop",
 
     # # General #
@@ -26,7 +25,6 @@ $packages = @(
     "Logitech.Options",
     "Notepad++.Notepad++",
     "Spotify.Spotify",
-    # "faisalumair.udeler",
 
     # # VPN
     "PrivateInternetAccess.PrivateInternetAccess",
