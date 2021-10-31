@@ -1,3 +1,4 @@
+
 # Ref => https://www.hanselman.com/blog/take-your-windows-terminal-and-powershell-to-the-next-level-with-terminal-icons
 # Setup terminal icons module
 if (Get-Module -ListAvailable -Name PSReadLine) {

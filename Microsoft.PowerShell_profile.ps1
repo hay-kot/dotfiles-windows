@@ -1,6 +1,8 @@
+Clear-Host # Removes message of the day thing
+
 oh-my-posh --init --shell pwsh --config ~/Documents/Powershell/Themes/custom-theme.json | Invoke-Expression
 
-# ===============================================================================
+# ================================================================================================
 # Modules
 
 # Ref => https://www.hanselman.com/blog/take-your-windows-terminal-and-powershell-to-the-next-level-with-terminal-icons
@@ -16,9 +18,6 @@ ${function:~} = { Set-Location ~ }
 # PoSh won't allow ${function:..} because of an invalid path error, so...
 ${function:Set-ParentLocation} = { Set-Location .. }; Set-Alias ".." Set-ParentLocation
 ${function:repos} = { Set-Location ~\code }
-
-# Missing Bash aliases
-Set-Alias time "Measure-Command"
 
 # ================================================================================================
 # Functions
